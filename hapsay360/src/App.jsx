@@ -6,6 +6,7 @@ import AdminDashboard from "./Pages/AdminDashboard";
 import UserDatabasePage from "./Pages/UserDatabasePage";
 import ClearancePage from "./Pages/ClearancePage";
 import BlotterPage from "./Pages/BlotterPage";
+import SOSRequestsPage from "./Pages/SOSRequestsPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/UserDatabase" element={<UserDatabasePage />} />
         <Route path="/ClearancePage" element={<ClearancePage />} />
         <Route path="/BlotterPage" element={<BlotterPage />} />
+        <Route path="/SOSRequestsPage" element={<SOSRequestsPage />} />
       </Routes>
     </Router>
   );

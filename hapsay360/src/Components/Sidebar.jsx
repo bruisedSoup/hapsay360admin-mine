@@ -33,7 +33,7 @@ const Sidebar = ({ activePage }) => {
     {
       label: "SOS Requests",
       icon: <AlertTriangle size={24} />,
-      path: "/SOSRequests",
+      path: "/SOSRequestsPage",
       id: "sos",
     },
     {
