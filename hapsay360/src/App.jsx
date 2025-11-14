@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AuthPortal from "./components/AuthPortal";
-import ForgotPassword from "./components/ForgotPassword";
-import CreateNewPassword from "./components/CreateNewPassword";
-import AdminDashboard from "./components/AdminDashboard";
+import AuthPortal from "./Auth/AuthPortal";
+import ForgotPassword from "./Auth/ForgotPassword";
+import CreateNewPassword from "./Auth/CreateNewPassword";
+import AdminDashboard from "./Pages/AdminDashboard";
+import UserDatabasePage from "./Pages/UserDatabasePage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/CreateNewPassword" element={<CreateNewPassword />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
+        <Route path="/UserDatabase" element={<UserDatabasePage />} />
       </Routes>
     </Router>
   );

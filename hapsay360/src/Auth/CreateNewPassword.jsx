@@ -31,9 +31,9 @@ export default function CreateNewPassword() {
       >
         <div className="mb-8">
           <img
-            src="../images/icon.png"
+            src="/images/icon.png"
             alt="HAPSAY360 Logo"
-            className="w-100 h-80"
+            className="w-80 h-80"
           />
         </div>
         <h1 className="text-7xl font-semibold tracking-wide drop-shadow-lg">

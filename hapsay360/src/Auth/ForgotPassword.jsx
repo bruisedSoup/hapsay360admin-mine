@@ -4,17 +4,13 @@ import { useNavigate } from "react-router-dom";
 export default function ForgotPassword() {
   const [code, setCode] = useState(["", "", "", ""]);
   const [timer, setTimer] = useState(30);
-  const [canResend, setCanResend] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (timer > 0) {
-      const interval = setInterval(() => setTimer((t) => t - 1), 1000);
-      return () => clearInterval(interval);
-    } else if (!canResend) {
-      setCanResend(true);
-    }
-  }, [timer, canResend]);
+    if (timer <= 0) return;
+    const interval = setInterval(() => setTimer((t) => t - 1), 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
   const handleChange = (e, index) => {
     const val = e.target.value;
@@ -25,14 +21,9 @@ export default function ForgotPassword() {
     if (val && index < 3) document.getElementById(`code-${index + 1}`).focus();
   };
 
-  const handleSubmit = () => {
-    alert("Code entered: " + code.join(""));
-  };
-
   const handleResend = () => {
     setCode(["", "", "", ""]);
     setTimer(30);
-    setCanResend(false);
     alert("Verification code resent!");
   };
 
@@ -45,9 +36,9 @@ export default function ForgotPassword() {
       >
         <div className="mb-8">
           <img
-            src="../images/icon.png"
+            src="/images/icon.png"
             alt="HAPSAY360 Logo"
-            className="w-100 h-80"
+            className="w-80 h-80"
           />
         </div>
         <h1 className="text-7xl font-semibold tracking-wide drop-shadow-lg">
@@ -92,7 +83,7 @@ export default function ForgotPassword() {
           {/* Resend Timer */}
           <p className="text-2xl text-gray-500 mb-6">
             Didn't receive code?{" "}
-            {canResend ? (
+            {timer <= 0 ? (
               <button
                 onClick={handleResend}
                 className="text-[#0D6EFD] hover:text-indigo-700 font-medium"
