@@ -7,6 +7,8 @@ import AdminHeader from "../Components/AdminHeader";
 const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
 const apiBaseUrl = baseUrl?.endsWith("/") ? baseUrl : `${baseUrl}/`;
 
+
+// Fetch All Users. Commented by Steve
 const fetchUsers = async () => {
   const response = await fetch(`${apiBaseUrl}users/`);
   if (!response.ok) {
@@ -16,6 +18,7 @@ const fetchUsers = async () => {
   return data?.data ?? [];
 };
 
+// User Database Table
 const UserDatabaseTable = () => {
   const {
     data: users = [],
